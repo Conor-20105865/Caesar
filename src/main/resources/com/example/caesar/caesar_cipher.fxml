@@ -5,9 +5,17 @@
 <?import javafx.scene.control.Button?>
 
 <VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.caesar.CaesarCipherController">
-    <TextArea fx:id="inputText"/>
-    <TextArea fx:id="outputText"/>
-    <Button text="Encode" onAction="#encode"/>
-    <Button text="Decode" onAction="#decode"/>
+
+    <!-- create input box -->
+    <TextArea promptText="Input" fx:id="inputText"/>
+
+    <!-- create output box -->
+    <TextArea promptText="Output" fx:id="outputText"/>
+
+    <!-- create encode button -->
+    <Button text="Encode" style="-fx-background-color: green;" onAction="#encode"/>
+
+    <!-- create decode button -->
+    <Button text="Decode" style="-fx-background-color: #2c81db;" onAction="#decode"/>
 </VBox>
 
