@@ -12,6 +12,8 @@
     <!-- create output box -->
     <TextArea promptText="Output" fx:id="outputText"/>
 
+    <!-- TODO: Move buttons for better position -->
+
     <!-- create encode button -->
     <Button text="Encode" style="-fx-background-color: green;" onAction="#encode"/>
 
