@@ -8,8 +8,7 @@ public class CaesarCipherController {
     @FXML private TextArea outputText;
 
     //TODO: make the shift value changeable through ui
-    //TODO: allow for other ciphers to be encoded and decoded
-    //TODO: add numbers cause why not
+    //TODO: allow for other ciphers to be encoded and decode
 
     public void encode() {
         String text = inputText.getText();
