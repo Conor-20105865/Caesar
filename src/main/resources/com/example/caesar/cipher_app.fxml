@@ -7,7 +7,7 @@
 
 <!-- TODO:make it look nicer -->
 
-<VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.caesar.CaesarCipherController">
+<VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.caesar.CipherController">
 
     <!-- create input box -->
     <TextArea promptText="Input" fx:id="inputText"/>

@@ -4,7 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
-public class CaesarCipherController {
+public class CipherController {
     public TextField shiftField;
     @FXML private TextArea inputText;
     @FXML private TextArea outputText;
