@@ -2,8 +2,10 @@ package com.example.caesar;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 
 public class CaesarCipherController {
+    public TextField shiftField;
     @FXML private TextArea inputText;
     @FXML private TextArea outputText;
 
@@ -12,8 +14,8 @@ public class CaesarCipherController {
 
     public void encode() {
         String text = inputText.getText();
-        //shift value below
-        int shift = 3;
+        //get inserted shift value from shifyField
+        int shift = getShiftValue();
         StringBuilder encodedText = new StringBuilder();
 
         for (char c : text.toCharArray()) {
@@ -35,8 +37,8 @@ public class CaesarCipherController {
 
     public void decode() {
         String text = inputText.getText();
-        //shift value below
-        int shift = 3;
+        //get shift val from shiftField
+        int shift = getShiftValue();
         StringBuilder decodedText = new StringBuilder();
 
         //checks if is letter
@@ -56,4 +58,17 @@ public class CaesarCipherController {
 
         outputText.setText(decodedText.toString());
     }
+
+
+    //method for getting input from textfield
+    private int getShiftValue() {
+        try{
+            return Integer.parseInt(shiftField.getText());
+        } catch (NumberFormatException e) {
+            //if no inptu given use 3
+            return 3;
+        }
+    }
+
+
 }

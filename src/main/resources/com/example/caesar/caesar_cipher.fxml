@@ -3,6 +3,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+
+<!-- make it look nicer -->
 
 <VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.caesar.CaesarCipherController">
 
@@ -12,7 +15,8 @@
     <!-- create output box -->
     <TextArea promptText="Output" fx:id="outputText"/>
 
-    <!-- TODO: Move buttons for better position -->
+    <!-- Text field for shift value change -->
+    <TextField fx:id="shiftField" promptText="Enter Shift Value" />
 
     <!-- create encode button -->
     <Button text="Encode" style="-fx-background-color: green;" onAction="#encode"/>
