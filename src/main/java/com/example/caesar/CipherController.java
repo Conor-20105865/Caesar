@@ -1,16 +1,18 @@
 package com.example.caesar;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 public class CipherController {
-    public TextField shiftField;
+    @FXML public TextField shiftField;
     @FXML private TextArea inputText;
     @FXML private TextArea outputText;
 
-    //TODO: make the shift value changeable through ui
-    //TODO: allow for other ciphers to be encoded and decode
+    @FXML private Button exitButton;
+
 
     public void encode() {
         String text = inputText.getText();
@@ -62,13 +64,20 @@ public class CipherController {
 
     //method for getting input from textfield
     private int getShiftValue() {
-        try{
-            return Integer.parseInt(shiftField.getText());
+        String text = shiftField.getText().trim(); // Remove spaces
+        if (text.isEmpty()) return 3; // Default to 3
+        try {
+            return Integer.parseInt(text);
         } catch (NumberFormatException e) {
-            //if no inptu given use 3
             return 3;
         }
     }
+
+    public void exitApp() {
+        System.exit(0); // Closes the application
+    }
+
+
 
 
 }

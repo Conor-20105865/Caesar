@@ -5,9 +5,10 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextField?>
 
-<!-- TODO:make it look nicer -->
 
-<VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.caesar.CipherController">
+<?import javafx.scene.layout.HBox?>
+<VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.caesar.CipherController"
+      stylesheets="@CipherApp.css">
 
     <!-- create input box -->
     <TextArea promptText="Input" fx:id="inputText"/>
@@ -23,5 +24,11 @@
 
     <!-- create decode button -->
     <Button text="Decode" style="-fx-background-color: #2c81db;" onAction="#decode"/>
+
+    <!-- Create exit Button -->
+    <HBox alignment="BOTTOM_RIGHT">
+    <Button text="Exit" style="-fx-background-color: red;" onAction="#exitApp"/>
+    </HBox>
+
 </VBox>
 
