@@ -1,12 +1,11 @@
 package com.example.caesar;
 
-import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
-public class CipherController {
+public class CaesarCipherController {
     @FXML public TextField shiftField;
     @FXML private TextArea inputText;
     @FXML private TextArea outputText;

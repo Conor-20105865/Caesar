@@ -7,7 +7,7 @@
 
 
 <?import javafx.scene.layout.HBox?>
-<VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.caesar.CipherController" stylesheets="@CipherApp.css">
+<VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.caesar.CaesarCipherController" stylesheets="@CipherApp.css">
 
     <!-- create input box -->
     <TextArea promptText="Input" fx:id="inputText"/>
