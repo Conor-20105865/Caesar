@@ -10,9 +10,3 @@ This is a simple Caesar Cipher implementation using JavaFX, which allows users t
 - A simple user interface built with JavaFX.
 - Customizable shift value with default of 3.
 - Exit button to close the application.
-
-## Requirements
-- Java 8 or higher.
-- JavaFX SDK (Ensure that JavaFX is correctly configured if using a JDK without bundled JavaFX).
-- An IDE such as IntelliJ IDEA or Eclipse.
-
