@@ -92,7 +92,7 @@
                 <configuration>
                     <name>CaesarCipher</name>
                     <appVersion>1.0.0</appVersion>
-                    <vendor>YourName</vendor>
+                    <vendor>Conor-20105865</vendor>
                     <destination>target/installer</destination>
                     <module>com.example.caesar/com.example.caesar.Launcher</module>
                     <runtimeImage>target/caesarcipher</runtimeImage>
