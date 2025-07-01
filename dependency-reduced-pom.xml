@@ -45,6 +45,28 @@
           </execution>
         </executions>
       </plugin>
+      <plugin>
+        <groupId>org.panteleyev</groupId>
+        <artifactId>jpackage-maven-plugin</artifactId>
+        <version>1.6.0</version>
+        <configuration>
+          <name>CaesarCipher</name>
+          <appVersion>1.0.0</appVersion>
+          <vendor>Conor-20105865</vendor>
+          <destination>target/installer</destination>
+          <module>com.example.caesar/com.example.caesar.Launcher</module>
+          <runtimeImage>target/caesarcipher</runtimeImage>
+          <type>EXE</type>
+          <winDirChooser>true</winDirChooser>
+          <winMenuGroup>CaesarCipher</winMenuGroup>
+          <icon>src/main/resources/icons/app.ico</icon>
+          <winShortcut>true</winShortcut>
+          <winPerUserInstall>true</winPerUserInstall>
+          <winShortcutPrompt>true</winShortcutPrompt>
+          <winMenu>true</winMenu>
+          <winIcons>src/main/resources/icons/installer.ico</winIcons>
+        </configuration>
+      </plugin>
     </plugins>
   </build>
   <dependencies>
