@@ -19,8 +19,19 @@
         <groupId>org.openjfx</groupId>
         <artifactId>javafx-maven-plugin</artifactId>
         <version>${javafx.maven.plugin.version}</version>
+        <executions>
+          <execution>
+            <id>create-runtime-image</id>
+            <goals>
+              <goal>jlink</goal>
+            </goals>
+            <configuration>
+              <stripDebug>false</stripDebug>
+            </configuration>
+          </execution>
+        </executions>
         <configuration>
-          <mainClass>com.example.caesar.CaesarCipherApp</mainClass>
+          <mainClass>com.example.caesar.Launcher</mainClass>
           <launcher>caesarcipher</launcher>
           <jlinkImageName>caesarcipher</jlinkImageName>
           <jlinkZipName>caesarcipherapp</jlinkZipName>
@@ -55,7 +66,7 @@
           <vendor>Conor-20105865</vendor>
           <destination>target/installer</destination>
           <module>com.example.caesar/com.example.caesar.Launcher</module>
-          <runtimeImage>target/caesarcipher</runtimeImage>
+          <runtimeImage>${project.build.directory}/caesarcipher</runtimeImage>
           <type>EXE</type>
           <winDirChooser>true</winDirChooser>
           <winMenuGroup>CaesarCipher</winMenuGroup>
@@ -64,11 +75,79 @@
           <winPerUserInstall>true</winPerUserInstall>
           <winShortcutPrompt>true</winShortcutPrompt>
           <winMenu>true</winMenu>
-          <winIcons>src/main/resources/icons/installer.ico</winIcons>
         </configuration>
       </plugin>
     </plugins>
   </build>
+  <profiles>
+    <profile>
+      <id>macos-dmg</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-maven-plugin</artifactId>
+            <version>${javafx.maven.plugin.version}</version>
+            <executions>
+              <execution>
+                <id>macos-runtime-image</id>
+                <phase>prepare-package</phase>
+                <goals>
+                  <goal>jlink</goal>
+                </goals>
+                <configuration>
+                  <mainClass>com.example.caesar.Launcher</mainClass>
+                  <launcher>caesarcipher</launcher>
+                  <jlinkImageName>caesarcipher</jlinkImageName>
+                  <jlinkZipName>caesarcipherapp</jlinkZipName>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.panteleyev</groupId>
+            <artifactId>jpackage-maven-plugin</artifactId>
+            <version>1.6.0</version>
+            <executions>
+              <execution>
+                <id>create-dmg</id>
+                <phase>package</phase>
+                <goals>
+                  <goal>jpackage</goal>
+                </goals>
+                <configuration>
+                  <skip>false</skip>
+                  <name>CaesarCipher</name>
+                  <appVersion>1.0.0</appVersion>
+                  <vendor>Conor-20105865</vendor>
+                  <destination>target/installer</destination>
+                  <module>com.example.caesar/com.example.caesar.Launcher</module>
+                  <runtimeImage>/Users/conorcunningham/Documents/GitHub/Caesar/target/caesarcipher</runtimeImage>
+                  <type>DMG</type>
+                  <winDirChooser>true</winDirChooser>
+                  <winMenuGroup>CaesarCipher</winMenuGroup>
+                  <icon>src/main/resources/icons/app.ico</icon>
+                  <winShortcut>true</winShortcut>
+                  <winPerUserInstall>true</winPerUserInstall>
+                  <winShortcutPrompt>true</winShortcutPrompt>
+                  <winMenu>true</winMenu>
+                </configuration>
+              </execution>
+            </executions>
+            <configuration>
+              <name>CaesarCipher</name>
+              <appVersion>1.0.0</appVersion>
+              <vendor>Conor-20105865</vendor>
+              <destination>target/installer</destination>
+              <module>com.example.caesar/com.example.caesar.Launcher</module>
+              <runtimeImage>${project.build.directory}/caesarcipher</runtimeImage>
+              <type>DMG</type>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
   <dependencies>
     <dependency>
       <groupId>org.junit.jupiter</groupId>
@@ -108,9 +187,9 @@
     </dependency>
   </dependencies>
   <properties>
+    <maven.compiler.target>17</maven.compiler.target>
     <maven.compiler.source>17</maven.compiler.source>
     <javafx.maven.plugin.version>0.0.8</javafx.maven.plugin.version>
-    <maven.compiler.target>17</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <javafx.version>17.0.6</javafx.version>
     <junit.version>5.10.2</junit.version>
